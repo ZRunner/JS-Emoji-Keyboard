@@ -23,6 +23,7 @@ class EmojiKeyboard {
         this.callback = (emoji, gotClosed) => { };
         this.auto_reconstruction = true;
         this.default_placeholder = "Find the right emoji for your needs 👌";
+        this.resizable = true;
         this.fuseIndex = null;
         this.fuse = null;
         if ("IntersectionObserver" in window) {
@@ -239,17 +240,20 @@ class EmojiKeyboard {
         let main_div = document.createElement("div");
         main_div.id = "emojikb-maindiv";
         main_div.style.width = '500px';
-        main_div.dataset.m_pos = 0;
-        const f = (e) => {this.resize(e, main_div)};
-        main_div.addEventListener("mousedown", (e) => {
-            if (e.offsetX < 4) {
-                main_div.dataset.m_pos = e.x;
-                document.addEventListener("mousemove", f, false);
-            }
-        }, false);
-        document.addEventListener("mouseup", () => {
-            document.removeEventListener("mousemove", f, false);
-        }, false);
+        if (this.resizable) {
+            main_div.classList.add('resizable');
+            main_div.dataset.m_pos = 0;
+            const f = (e) => { this.resize(e, main_div) };
+            main_div.addEventListener("mousedown", (e) => {
+                if (e.offsetX < 4) {
+                    main_div.dataset.m_pos = e.x;
+                    document.addEventListener("mousemove", f, false);
+                }
+            }, false);
+            document.addEventListener("mouseup", () => {
+                document.removeEventListener("mousemove", f, false);
+            }, false);
+        }
         // search div
         let search_div = document.createElement("div");
         search_div.id = "emojikb-searchdiv";

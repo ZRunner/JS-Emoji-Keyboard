@@ -14,7 +14,7 @@
     font-family: 'Whitney', 'Catamaran', 'Helvetica Neue', sans-serif;
 }
 
-#emojikb-maindiv:after {
+#emojikb-maindiv.resizable:after {
     content: " ";
        position: absolute;
        left: 0;
