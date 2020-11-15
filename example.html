@@ -6,7 +6,7 @@
     <title>Creation of an emojis keyboard</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
-    <script src="packages/emoji_keyboard.js"></script>
+    <script src="emoji_keyboard.js"></script>
     <link rel="stylesheet" href="emoji_keyboard.css">
 </head>
 
@@ -21,6 +21,7 @@
             console.info(emoji, closed)
             zone.innerText += emoji.emoji;
         };
+        emojiKeyboard.resizable = false;
         emojiKeyboard.default_placeholder = "You are the best";
         emojiKeyboard.instantiate(document.getElementById("test"))
     </script>
