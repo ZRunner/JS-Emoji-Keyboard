@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Creation of an emojis keyboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
+    <script src="packages/emoji_keyboard.js"></script>
+    <link rel="stylesheet" href="emoji_keyboard.css">
+</head>
+
+<body>
+    <button id="test">Test here</button>
+    <div id="display"></div>
+
+    <script>
+        const zone = document.getElementById("display");
+        var emojiKeyboard = new EmojiKeyboard;
+        emojiKeyboard.callback = (emoji, closed) => {
+            console.info(emoji, closed)
+            zone.innerText += emoji.emoji;
+        };
+        // emojiKeyboard.default_placeholder = "Z is the best";
+        emojiKeyboard.instantiate(document.getElementById("test"))
+    </script>
+</body>
+
+</html>
