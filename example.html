@@ -17,6 +17,12 @@
     <script>
         const zone = document.getElementById("display");
         var emojiKeyboard = new EmojiKeyboard;
+        /* you can edit a few attributes:
+            - callback: function called when a user clicks on an emoji, with the emoji and a boolean telling if the window got closed
+            - auto_reconstruction: boolean if we should recreate the keyboard when we cannot find it
+            - default_placeholder: placeholder text in the search bar
+            - resizable: boolean if the window can be resized (left side)
+        */
         emojiKeyboard.callback = (emoji, closed) => {
             console.info(emoji, closed)
             zone.innerText += emoji.emoji;
